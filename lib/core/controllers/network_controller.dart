@@ -4,6 +4,10 @@ class NetworkController {
   // İnternet bağlantısı olup olmadığını kontrol eden metod
   Future<bool> isConnected() async {
     final connectivityResult = await Connectivity().checkConnectivity();
+<<<<<<< HEAD
+=======
+
+>>>>>>> Updated
     return _isOnline(connectivityResult.first);
   }
 

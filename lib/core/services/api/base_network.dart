@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'package:get/get.dart';
 import 'package:test_project/core/config/constants/api_urls.dart';
 import 'package:test_project/core/controllers/network_controller.dart';
+=======
+
+import 'package:started_app/core/config/constants/api_urls.dart';
+import 'package:started_app/core/controllers/network_controller.dart';
+>>>>>>> Updated
 import 'package:vexana/vexana.dart';
 
 abstract class BaseNetwork<T extends INetworkModel<T>> {
@@ -16,7 +22,7 @@ abstract class BaseNetwork<T extends INetworkModel<T>> {
         onError: (error, handler) async {
           if (error.response?.statusCode == null &&
               await networkController.isConnected() == false) {
-            Get.snackbar('Hata', 'İnternet yok');
+            // Get.snackbar('Hata', 'İnternet yok');
           }
           handler.next(error);
         },
