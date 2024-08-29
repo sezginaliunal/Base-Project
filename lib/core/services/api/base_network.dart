@@ -6,7 +6,11 @@ import 'package:test_project/core/controllers/network_controller.dart';
 =======
 
 import 'package:started_app/core/config/constants/api_urls.dart';
+<<<<<<< HEAD
 import 'package:started_app/core/controllers/network_controller.dart';
+>>>>>>> Updated
+=======
+import 'package:started_app/core/services/network/network_service.dart';
 >>>>>>> Updated
 import 'package:vexana/vexana.dart';
 
