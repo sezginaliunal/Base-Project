@@ -1,15 +1,7 @@
-<<<<<<< HEAD
-import 'package:get/get.dart';
-import 'package:test_project/app/features/splash/splash_view.dart';
+import 'package:flutter/material.dart';
+import 'package:test_project/app/features/todo/todo_view.dart';
 import 'package:test_project/core/components/unknown_view.dart';
 import 'package:test_project/core/config/constants/navigation_routes.dart';
-=======
-import 'package:flutter/material.dart';
-import 'package:started_app/app/features/splash/splash.dart';
-import 'package:started_app/app/features/todo/todo_view.dart';
-import 'package:started_app/core/components/unknown_view.dart';
-import 'package:started_app/core/config/constants/navigation_routes.dart';
->>>>>>> Updated
 
 class AppRouter {
   // Singleton instance
@@ -21,7 +13,7 @@ class AppRouter {
   Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case RoutesName.INITIAL_ROUTE:
-        return MaterialPageRoute(builder: (_) => const SplashView());
+        return MaterialPageRoute(builder: (_) => const TodoPage());
       case RoutesName.TEST_VIEW:
         return MaterialPageRoute(builder: (_) => const TodoPage());
 

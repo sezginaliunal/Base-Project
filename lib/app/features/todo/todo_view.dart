@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:started_app/app/features/todo/todo_bloc.dart';
-import 'package:started_app/app/features/todo/todo_event.dart';
-import 'package:started_app/app/features/todo/todo_state.dart';
+import 'package:test_project/app/features/todo/todo_bloc.dart';
+import 'package:test_project/app/features/todo/todo_event.dart';
+import 'package:test_project/app/features/todo/todo_state.dart';
 
 class TodoPage extends StatelessWidget {
   const TodoPage({super.key});

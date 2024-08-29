@@ -1,7 +1,7 @@
 // Tema değişimini dinleyen widget
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:started_app/core/bloc/theme/theme_bloc.dart';
+import 'package:test_project/core/bloc/theme/theme_bloc.dart';
 
 class ThemeSwitcher extends StatelessWidget {
   const ThemeSwitcher({super.key});

@@ -1,19 +1,11 @@
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
-import 'package:get/get.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:test_project/app/features/todo/todo_bloc.dart';
+import 'package:test_project/app/features/todo/todo_service.dart';
+import 'package:test_project/core/bloc/theme/theme_bloc.dart';
 import 'package:test_project/core/config/constants/app_infos.dart';
 import 'package:test_project/core/config/constants/navigation_route_pages.dart';
 import 'package:test_project/core/config/constants/navigation_routes.dart';
-import 'package:test_project/core/controllers/theme_controller.dart';
-=======
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:started_app/app/features/todo/todo_bloc.dart';
-import 'package:started_app/app/features/todo/todo_service.dart';
-import 'package:started_app/core/bloc/theme/theme_bloc.dart';
-import 'package:started_app/core/config/constants/app_infos.dart';
-import 'package:started_app/core/config/constants/navigation_route_pages.dart';
-import 'package:started_app/core/config/constants/navigation_routes.dart';
->>>>>>> Updated
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});

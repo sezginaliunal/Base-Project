@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:started_app/core/models/todo.dart';
+import 'package:test_project/core/models/todo.dart';
 
 abstract class TodoState extends Equatable {
   @override
