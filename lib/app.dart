@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:test_project/app/features/todo/todo_bloc.dart';
 import 'package:test_project/app/features/todo/todo_service.dart';
-import 'package:test_project/core/bloc/theme/theme_bloc.dart';
+import 'package:test_project/core/config/theme/bloc/theme_bloc.dart';
 import 'package:test_project/core/config/constants/app_infos.dart';
 import 'package:test_project/core/config/constants/navigation_route_pages.dart';
 import 'package:test_project/core/config/constants/navigation_routes.dart';
