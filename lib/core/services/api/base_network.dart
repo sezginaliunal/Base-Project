@@ -1,67 +1,120 @@
-import 'package:flutter/material.dart';
-import 'package:test_project/core/config/constants/api_urls.dart';
+import 'package:dio/dio.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/get_navigation.dart';
+import 'package:minersy_blum/core/config/constants/api_urls.dart';
+import 'package:minersy_blum/core/services/network/network_service.dart';
 
-import 'package:test_project/core/services/network/network_service.dart';
-import 'package:vexana/vexana.dart';
+class BaseNetwork {
+  factory BaseNetwork() {
+    return _instance;
+  }
 
-abstract class BaseNetwork<T extends INetworkModel<T>> {
-  BaseNetwork({
-    required this.baseUrl,
-    bool isEnableLogger = false,
-  }) {
-    networkManager = NetworkManager<T>(
-      isEnableLogger: isEnableLogger,
-      isEnableTest: true,
-      interceptor: InterceptorsWrapper(
-        onError: (error, handler) async {
-          if (error.response?.statusCode == null &&
-              await networkController.isConnected() == false) {
-            // Get.snackbar('Hata', 'İnternet yok');
-          }
-          handler.next(error);
-        },
-      ),
-      options: BaseOptions(
-        baseUrl: baseUrl,
-        connectTimeout: Durations.extralong1,
+  BaseNetwork._internal() {
+    final options = BaseOptions(
+      baseUrl: ApiUrls.baseUrl, // Temel API URL'sini buraya yaz
+    );
+    _dio = Dio(options);
+
+    // İstek ve yanıt interceptor'ları ekleyebiliriz
+    _dio.interceptors.add(
+      InterceptorsWrapper(
+        onRequest: _onRequest,
+        onResponse: _onResponse,
+        onError: _onError,
       ),
     );
   }
   final networkController = NetworkController();
 
-  final String baseUrl;
-  late final INetworkManager<T> networkManager;
-}
-
-class NetworkService<T extends INetworkModel<T>> extends BaseNetwork<T> {
-  NetworkService({
-    super.baseUrl = ApiUrls.baseUrl,
-    super.isEnableLogger,
-  });
-
-  Future<T?> fetchData(String endpoint, T parseModel) async {
-    final response = await networkManager.send<T, T>(
-      endpoint,
-      parseModel: parseModel,
-      method: RequestType.GET,
-    );
-
-    if (response.data != null) {
-      return response.data!;
+  Future<void> _onError(
+    DioException error,
+    ErrorInterceptorHandler handler,
+  ) async {
+    if (error.response?.statusCode == null &&
+        await networkController.isConnected() == false) {
+      Get.snackbar('Hata', 'İnternet yok');
     }
-    return null;
+    return handler.reject(error);
   }
 
-  Future<T?> postData(String endpoint, T model) async {
-    final response = await networkManager.send<T, T>(
-      endpoint,
-      parseModel: model,
-      method: RequestType.POST,
-      data: model.toJson(),
-    );
-    if (response.data != null) {
-      return response.data!;
+  void _onResponse(
+    Response<dynamic> response,
+    ResponseInterceptorHandler handler,
+  ) {
+    return handler.next(response); // Devam et
+  }
+
+  void _onRequest(RequestOptions options, RequestInterceptorHandler handler) {
+    return handler.next(options); // Devam et
+  }
+
+  late Dio _dio;
+
+  // Singleton pattern
+  static final BaseNetwork _instance = BaseNetwork._internal();
+
+  // GET isteği
+  Future<dynamic> get(
+    String path, {
+    Map<String, dynamic>? queryParameters,
+  }) async {
+    try {
+      final response = await _dio.get(path, queryParameters: queryParameters);
+      return _parseResponse(response);
+    } catch (e) {
+      return _handleError(e);
     }
-    return null;
+  }
+
+  // POST isteği
+  Future<dynamic> post(String path, {Map<String, dynamic>? data}) async {
+    try {
+      final response = await _dio.post(path, data: data);
+      return _parseResponse(response);
+    } catch (e) {
+      return _handleError(e);
+    }
+  }
+
+  // PUT isteği
+  Future<dynamic> put(String path, {Map<String, dynamic>? data}) async {
+    try {
+      final response = await _dio.put(path, data: data);
+      return _parseResponse(response);
+    } catch (e) {
+      return _handleError(e);
+    }
+  }
+
+  // DELETE isteği
+  Future<dynamic> delete(String path, {Map<String, dynamic>? data}) async {
+    try {
+      final response = await _dio.delete(path, data: data);
+      return _parseResponse(response);
+    } catch (e) {
+      return _handleError(e);
+    }
+  }
+
+  // Yanıtı parse etme
+  dynamic _parseResponse(Response<dynamic> response) {
+    if (response.statusCode == 200 || response.statusCode == 201) {
+      return response.data; // Yanıt başarılıysa dönen veriyi parse et
+    } else {
+      throw Exception('Error: ${response.statusCode}');
+    }
+  }
+
+  // Hata yönetimi
+  dynamic _handleError(dynamic error) async {
+    if (error is DioException) {
+      if (error.response != null) {
+        return 'Error: ${error.response?.statusCode}, ${error.response?.data}';
+      } else {
+        return 'Error: ${error.message}';
+      }
+    } else {
+      return 'Unknown error';
+    }
   }
 }
