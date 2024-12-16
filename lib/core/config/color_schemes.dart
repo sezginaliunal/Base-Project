@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:test_project/core/config/colors/blue_colors.dart';
-import 'package:test_project/core/config/colors/dark_colors.dart';
-import 'package:test_project/core/config/colors/light_colors.dart';
-import 'package:test_project/core/config/colors/red_colors.dart';
+import 'package:test_project/core/config/theme/colors/blue_colors.dart';
+import 'package:test_project/core/config/theme/colors/dark_colors.dart';
+import 'package:test_project/core/config/theme/colors/light_colors.dart';
+import 'package:test_project/core/config/theme/colors/red_colors.dart';
 
 class AppColorScheme {
   static ColorScheme get light => const ColorScheme(

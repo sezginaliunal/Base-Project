@@ -23,7 +23,7 @@ dependencies:
   # Utils
   kartal: ^4.0.4
   # Network
-  vexana: ^4.1.0
+  dio: ^5.7.0
   connectivity_plus: ^6.0.5
   #Serialzer
   json_annotation: ^4.9.0
@@ -63,4 +63,12 @@ flutter:
   #   - assets/icons/
   #   - assets/image/
   #   - assets/animation/
+  fonts:
+    - family: Kanit
+      fonts:
+        - asset: assets/fonts/Kanit-Regular.ttf
+        - asset: assets/fonts/Kanit-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Kanit-Italic.ttf
+          style: italic
   uses-material-design: true
