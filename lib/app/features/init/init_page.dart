@@ -45,6 +45,7 @@ class InitPage extends GetView<InitController> {
                 ),
               ),
             ),
+            ElevatedButton(onPressed: () {}, child: const Text('aaaa')),
             Container(
               height: 100,
               width: double.infinity,
@@ -101,10 +102,7 @@ class InitPage extends GetView<InitController> {
         return Icons.light_mode;
       case AppTheme.Dark:
         return Icons.dark_mode;
-      case AppTheme.Blue:
-        return Icons.color_lens;
-      case AppTheme.Red:
-        return Icons.favorite;
+
       default:
         return Icons.light_mode;
     }

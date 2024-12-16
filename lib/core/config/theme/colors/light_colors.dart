@@ -24,4 +24,23 @@ class LightColors {
   static const onError = Colors.white;
   static const errorContainer = Color(0xFFFFDAD6);
   static const onErrorContainer = Color(0xFF410002);
+
+  // Components
+  static const appBarColor = Color(0xFFF5F5F5);
+  static const bottomNavBarColor = Color(0xFFFFFFFF);
+  static const bottomNavBarSelectedColor = Color(0xFF2196F3);
+  static const bottomNavBarUnselectedColor = Color(0xFF757575);
+
+  static const cardColor = Color(0xFFFFFFFF);
+  static const cardShadowColor = Color(0xFF000000);
+
+  static const buttonColor = Color(0xFF1976D2);
+  static const buttonTextColor = Colors.white;
+
+  static const dividerColor = Color(0xFFBDBDBD);
+
+  static const textFieldBackground = Color(0xFFF5F5F5);
+  static const textFieldBorder = Color(0xFFBDBDBD);
+  static const textFieldHint = Color(0xFF757575);
+  static const textFieldText = Color(0xFF1C1B1F);
 }

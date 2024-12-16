@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
-import 'package:test_project/core/config/app_theme.dart';
 import 'package:test_project/core/config/constants/hive_boxes.dart';
+import 'package:test_project/core/config/theme/app_theme.dart';
 
-enum AppTheme { Light, Dark, Blue, Red }
+enum AppTheme { Light, Dark }
 
 class ThemeController extends GetxController {
   ThemeController() {
@@ -34,10 +34,7 @@ class ThemeController extends GetxController {
         return AppThemes.light;
       case AppTheme.Dark:
         return AppThemes.dark;
-      case AppTheme.Blue:
-        return AppThemes.blue;
-      case AppTheme.Red:
-        return AppThemes.red;
+
       default:
         return AppThemes.light;
     }
