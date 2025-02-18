@@ -10,5 +10,10 @@ enum AppFontStyles {
   final double size;
 
   const AppFontStyles(
-      this.fontName, this.regular, this.italic, this.bold, this.size);
+    this.fontName,
+    this.regular,
+    this.italic,
+    this.bold,
+    this.size,
+  );
 }

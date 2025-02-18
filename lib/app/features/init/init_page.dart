@@ -10,9 +10,6 @@ class InitPage extends GetView<InitController> {
       appBar: AppBar(
         title: const Text('Init'),
       ),
-      body: Container(
-          // Add your widgets here
-          ),
     );
   }
 }

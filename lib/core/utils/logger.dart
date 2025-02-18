@@ -1,3 +1,5 @@
+import 'package:flutter/foundation.dart';
+
 enum LogLevel {
   error('🔥', '\x1B[31m'), // Kırmızı
   warning('⚠️', '\x1B[33m'), // Sarı
@@ -13,7 +15,10 @@ class Logger {
   static const String _reset = '\x1B[0m';
 
   static void log(LogLevel level, String message) {
-    print(
-        '${level.color}${level.emoji} [${level.name.toUpperCase()}] $message$_reset');
+    if (kDebugMode) {
+      print(
+        '${level.color}${level.emoji} [${level.name.toUpperCase()}] $message$_reset',
+      );
+    }
   }
 }

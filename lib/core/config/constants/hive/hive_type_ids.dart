@@ -8,4 +8,5 @@ class HiveTypeIds {
 
   // Type IDs
   static const int jwtModelTypeId = 1;
+  static const int initTypeId = 2;
 }

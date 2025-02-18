@@ -34,9 +34,6 @@ class ThemeController extends GetxController {
         return AppThemes.light;
       case AppTheme.Dark:
         return AppThemes.dark;
-
-      default:
-        return AppThemes.light;
     }
   }
 
