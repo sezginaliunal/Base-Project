@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class CustomFormWidget extends StatelessWidget {
-  const CustomFormWidget({
+class MyTextField extends StatelessWidget {
+  const MyTextField({
     required this.controller,
     required this.labelText,
     required this.autofillHints,
@@ -9,13 +9,18 @@ class CustomFormWidget extends StatelessWidget {
     this.obscureText = false,
     this.keyboardType = TextInputType.text,
     this.validator,
+    this.prefixIcon, // Sol ikon
+    this.suffixIcon, // Sağ ikon
   });
+
   final TextEditingController controller;
   final String labelText;
   final bool obscureText;
   final TextInputType keyboardType;
   final String? Function(String?)? validator;
   final Iterable<String>? autofillHints;
+  final Widget? prefixIcon;
+  final Widget? suffixIcon;
 
   @override
   Widget build(BuildContext context) {
@@ -23,8 +28,9 @@ class CustomFormWidget extends StatelessWidget {
       autofillHints: autofillHints,
       controller: controller,
       decoration: InputDecoration(
-        labelText: labelText,
-        border: const OutlineInputBorder(),
+        hintText: labelText,
+        prefixIcon: prefixIcon, // Sol ikon
+        suffixIcon: suffixIcon, // Sağ ikon
       ),
       obscureText: obscureText,
       keyboardType: keyboardType,

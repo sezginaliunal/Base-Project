@@ -2,7 +2,7 @@ import 'package:get/get.dart';
 import 'package:test_project/app/features/init/init_bindings.dart';
 import 'package:test_project/app/features/init/init_page.dart';
 import 'package:test_project/core/components/unknown_view.dart';
-import 'package:test_project/core/config/constants/navigation_routes.dart';
+import 'package:test_project/core/config/constants/routes/navigation_routes.dart';
 
 class AppRouter {
   // Singleton instance
@@ -15,7 +15,7 @@ class AppRouter {
     return [
       GetPage(
         name: RoutesName.INITIAL_ROUTE,
-        page: () => const InitPage(),
+        page: InitPage.new,
         binding: InitBinding(),
       ),
       GetPage(

@@ -1,66 +1,148 @@
 import 'package:flutter/material.dart';
-import 'package:test_project/core/config/theme/color_schemes.dart';
-import 'package:test_project/core/config/theme/colors/dark_colors.dart';
-import 'package:test_project/core/config/theme/colors/light_colors.dart';
+import 'package:test_project/core/config/constants/assets/app_font_styles.dart';
 
 class AppThemes {
   static ThemeData get light => ThemeData(
-        fontFamily: 'Kanit',
+        fontFamily: AppFontStyles.kanit.fontName,
         useMaterial3: true,
-        colorScheme: AppColorScheme.light,
         brightness: Brightness.light,
-        appBarTheme: const AppBarTheme(
-          centerTitle: true,
-          elevation: 0,
-          backgroundColor: LightColors.appBarColor,
-        ),
-        cardTheme: const CardTheme(
-          color: LightColors.cardColor,
-          shadowColor: LightColors.cardShadowColor,
-        ),
+        // Button theme
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
-            backgroundColor: LightColors.buttonColor,
-            foregroundColor: LightColors.background,
+            foregroundColor: Colors.white,
+            backgroundColor: Colors.blue, // Text color
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8), // Rounded corners
+            ),
+            padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 24),
           ),
         ),
-        bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-          backgroundColor: LightColors.bottomNavBarColor,
-          selectedItemColor: LightColors.bottomNavBarSelectedColor,
-          unselectedItemColor: LightColors.bottomNavBarUnselectedColor,
+        textButtonTheme: TextButtonThemeData(
+          style: TextButton.styleFrom(
+            foregroundColor: Colors.blue, // Text color
+          ),
         ),
-        dividerColor: LightColors.dividerColor,
+        outlinedButtonTheme: OutlinedButtonThemeData(
+          style: OutlinedButton.styleFrom(
+            foregroundColor: Colors.blue,
+            side: const BorderSide(color: Colors.blue), // Border color
+          ),
+        ),
+        // Card theme
+        cardTheme: CardTheme(
+          color: Colors.white, // Card background color
+          elevation: 4, // Shadow for card
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12), // Rounded corners
+          ),
+        ),
+        // Chip theme
+        chipTheme: ChipThemeData(
+          backgroundColor: Colors.blue.shade100, // Chip background color
+          selectedColor: Colors.blue, // Selected color
+          disabledColor: Colors.grey, // Disabled color
+          shape: const StadiumBorder(),
+          labelStyle: TextStyle(
+            color: Colors.blue.shade800, // Text color inside chip
+          ),
+          padding: const EdgeInsets.all(6),
+        ),
+        // Input decoration theme
+        inputDecorationTheme: InputDecorationTheme(
+          filled: true,
+          fillColor: Colors.grey.shade200, // Background color of text fields
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(8), // Rounded corners
+            borderSide: const BorderSide(color: Colors.blue), // Border color
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(8),
+            borderSide:
+                BorderSide(color: Colors.blue.shade700), // Focused border color
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(8),
+            borderSide:
+                BorderSide(color: Colors.blue.shade300), // Enabled border color
+          ),
+          labelStyle: TextStyle(
+            color: Colors.blue.shade800, // Label color
+          ),
+          hintStyle: TextStyle(
+            color: Colors.blue.shade400, // Hint text color
+          ),
+        ),
       );
 
   static ThemeData get dark => ThemeData(
         useMaterial3: true,
-        fontFamily: 'Kanit',
-        colorScheme: AppColorScheme.dark,
+        fontFamily: AppFontStyles.kanit.fontName,
         brightness: Brightness.dark,
-        appBarTheme: const AppBarTheme(
-          centerTitle: true,
-          elevation: 0,
-          backgroundColor: DarkColors.appBarColor,
-        ),
-        cardTheme: const CardTheme(
-          elevation: 2,
-          margin: EdgeInsets.all(8),
-          color: DarkColors.cardColor,
-          shadowColor: DarkColors.cardShadowColor,
-        ),
+        // Button theme
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
-            elevation: 2,
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-            backgroundColor: DarkColors.buttonColor,
-            foregroundColor: DarkColors.buttonTextColor,
+            foregroundColor: Colors.white,
+            backgroundColor: Colors.blue.shade800, // Text color
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8), // Rounded corners
+            ),
+            padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 24),
           ),
         ),
-        bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-          backgroundColor: DarkColors.bottomNavBarColor,
-          selectedItemColor: DarkColors.bottomNavBarSelectedColor,
-          unselectedItemColor: DarkColors.bottomNavBarUnselectedColor,
+        textButtonTheme: TextButtonThemeData(
+          style: TextButton.styleFrom(
+            foregroundColor: Colors.blue.shade300, // Text color
+          ),
         ),
-        dividerColor: DarkColors.dividerColor,
+        outlinedButtonTheme: OutlinedButtonThemeData(
+          style: OutlinedButton.styleFrom(
+            foregroundColor: Colors.blue.shade300,
+            side: BorderSide(color: Colors.blue.shade500), // Border color
+          ),
+        ),
+        // Card theme
+        cardTheme: CardTheme(
+          color: Colors.grey.shade800, // Card background color
+          elevation: 6, // Shadow for card
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12), // Rounded corners
+          ),
+        ),
+        // Chip theme
+        chipTheme: ChipThemeData(
+          backgroundColor: Colors.blue.shade700, // Chip background color
+          selectedColor: Colors.blue, // Selected color
+          disabledColor: Colors.grey.shade600, // Disabled color
+          shape: const StadiumBorder(),
+          labelStyle: const TextStyle(
+            color: Colors.white, // Text color inside chip
+          ),
+          padding: const EdgeInsets.all(6),
+        ),
+        // Input decoration theme
+        inputDecorationTheme: InputDecorationTheme(
+          filled: true,
+          fillColor: Colors.grey.shade700, // Background color of text fields
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(8), // Rounded corners
+            borderSide: BorderSide(color: Colors.blue.shade500), // Border color
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(8),
+            borderSide:
+                BorderSide(color: Colors.blue.shade300), // Focused border color
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(8),
+            borderSide:
+                BorderSide(color: Colors.blue.shade400), // Enabled border color
+          ),
+          labelStyle: TextStyle(
+            color: Colors.blue.shade300, // Label color
+          ),
+          hintStyle: TextStyle(
+            color: Colors.blue.shade200, // Hint text color
+          ),
+        ),
       );
 }

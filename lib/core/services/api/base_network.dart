@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
-import 'package:test_project/core/config/constants/api_urls.dart';
+import 'package:test_project/core/config/constants/app/app_urls.dart';
 import 'package:test_project/core/services/network/network_service.dart';
 
 class BaseNetwork {
@@ -11,7 +11,7 @@ class BaseNetwork {
 
   BaseNetwork._internal() {
     final options = BaseOptions(
-      baseUrl: ApiUrls.baseUrl, // Temel API URL'sini buraya yaz
+      baseUrl: AppUrls.baseUrl, // Temel API URL'sini buraya yaz
     );
     _dio = Dio(options);
 
